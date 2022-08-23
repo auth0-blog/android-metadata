@@ -13,49 +13,70 @@ The project is for a single-screen Android app that allows users to log in and l
 
 When you launch the app, the initial screen greets you with the app’s title, _Metadata demo_, and a _Log in_ button:
 
-![Opening screen, with “Metadata demo” in title font and “Log in” button below it.](https://images.ctfassets.net/23aumh6u8s0i/7vndxtjzjvZergPPK2SraE/3cb5987a350627318b07e31846b5b179/starter_screen_1.png)
+![Opening screen, with “Metadata demo” in title font and “Log in” button below it.](https://images.ctfassets.net/23aumh6u8s0i/6eewi6iXnuI8vZyLVzTfiB/a99b35689f43f054644b8a45d29f1162/starter_screen_1.png)
 
-Press the _Log in_ button to log into the app. The first thing you’ll see is this alert box:
+Press the _Log in_ button. This will take you to the [Auth0 Universal Login screen](https://auth0.com/docs/login/universal-login), which appears in a web browser view embedded in the app:
 
-![“‘iOS SwiftUI Metadata’ Wants to Use ‘auth0.com’ to Sign In” alert box.](https://images.ctfassets.net/23aumh6u8s0i/47OcYsux9USeY3h9LkUkXd/d68b8a305439f3b4a9a9056e6c230f8f/starter_screen_2.png)
+![Universal Login screen, part 1: Entering the email address.](https://images.ctfassets.net/23aumh6u8s0i/4jeMWIsfLAEVUhF6a2rbF3/1b627462b8b8fb720af637ffe3158d0a/starter_screen_2.png)
 
-iOS’ privacy policy requires it to inform the user when an app is sending or receiving personal information about them from a third party (Auth0 in this case), which it does with the alert box.
+Once you’ve entered your email address, you’ll proceed to the second part of the Universal Login screen, where you’ll enter your password:
 
-Press the _Continue_ button. This will take you to the [Auth0 Universal Login screen](https://auth0.com/docs/login/universal-login), which appears in a web browser view embedded in the app, where you enter your email address and password:
+![Universal Login screen, part 2: Entering the password.](https://images.ctfassets.net/23aumh6u8s0i/7wG5yxnGV8Ffof8zrrly6t/093aff59a94da57935db0c6dd5f035e4/starter_screen_3.png)
 
-![Universal Login screen, part 1: Entering the email address.](https://images.ctfassets.net/23aumh6u8s0i/2lvbR45kgrMSr0TGxUmv5i/fd6d7814492b31a3174c674a5a1c65bc/starter_screen_3.png)
+Whenever a user uses Universal Login to authenticate into an app for the first time, they see this screen, which asks for permission to use information from their user account:
 
-Once past the Universal Login screeen and related follow-up screens, you’re taken to the “logged in” screen, which displays your picture, name, email address, and personal affirmation:
+![Universal Login screen, part 4: “Authorize App” screen.](https://images.ctfassets.net/23aumh6u8s0i/3TL1FrGH4N43F3QLXAOgLH/a807c1b64448d935e20164fd32a58e7d/authorize_app.png)
 
-![“You’re logged in!” screen for user “randomuser@example.com”, showing the user’s name, email, and filled-in “personal affirmation” text field.](https://images.ctfassets.net/23aumh6u8s0i/uUnKzMN7qJpmD95UE3qYz/6903d77eb11089eca00a09f070657932/complete_screen_8.png)
+Press the _Accept_ button to continue. This completes the login process, taking you to the app’s main screen, which displays the information from your user account:
 
-Your personal affirmation is stored in your user profile’s user metadata, and you can update it by entering an affirtmation in the text field and pressing the _Save affirmation_ button. You can also retrieve your current affirmation by pressing the _Refresh affirmation_ button.
+![“You’re logged in!” screen for user “randomuser@example.com”, showing the user’s name, email, and empty “personal affirmation” text field.](https://images.ctfassets.net/23aumh6u8s0i/5HThYnUTltuLCuDQW2HU55/8ab6c9c921985223aac2a0fb7d337b00/complete_screen_1.png)
 
-The app also uses app metadata to determine if it should show an “announcement” web link. The app metadata also determines the text and URL for the link:
+As you can see, the app displays your name, email address, and the photo automatically generated for your account when you created it.
 
-![“You’re logged in!” screen for user “skippy@example.com”, showing the user’s name, email, filled-in “personal affirmation” text field, and “Tap here for an important announcement” link.](https://images.ctfassets.net/23aumh6u8s0i/334xQBVhg8lzHog02QOMbJ/926f81a8a9c0258c1d3fb8ddaf8003cb/complete_screen_9.png)
+It also displays your personal affirmation — user metadata — that you can edit. The text field will be empty if you haven’t entered an affirmation yet. If you have, it will appear in the text field when the app starts up and whenever you press the _Refresh affirmation_ button:
 
-If you tap the _Tap here for an important announcement_ link, the app opens a YouTube video containing that announcement, delivered by 1980s pop star Rick Astley: 
+![“You’re logged in!” screen for user “randomuser@example.com”, showing the user’s name, email, and filled-in “personal affirmation” text field.](https://images.ctfassets.net/23aumh6u8s0i/1GzaMkouDzsTDYhZx2mYEF/75c4ae61f8680d37d855d12a18b97e23/complete_screen_2.png)
 
-![Rick Astley’s “Never Gonna Give You Up” video on YouTube.](https://images.ctfassets.net/23aumh6u8s0i/6wiQ6bEOGkmc56PWdvABtF/1a07ef4965142501957c15a420293040/complete_screen_10.png)
+The app also uses app metadata to determine if it should show an “announcement” web button. The app metadata also determines the text for the button and the URL for the web page it should open:
 
-When you log out, you’re taken back to the initial screen, which now displays “You’re logged out.” as its title:
+![“You’re logged in!” screen for user “skippy@example.com”, showing the user’s name, email, filled-in “personal affirmation” text field, and “Tap here for an important announcement” button.](https://images.ctfassets.net/23aumh6u8s0i/2A77zS6gM0WOn8h0r9MJkO/dcc9cc101e00904d25f3848056cfb702/complete_screen_3.png)
 
-![“Logged out” screen, with “You’re logged out.” in title font and “Log in” button below it.](https://images.ctfassets.net/23aumh6u8s0i/2i4ACeHwoGIlFCWHmonN0b/e5e0d353d936749db4843f7442484ae5/complete_screen_12.png)
+If you press the _Tap here for an important announcement_ button, the app opens a YouTube video containing that announcement, delivered by 1980s pop star Rick Astley: 
+
+![Rick Astley’s “Never Gonna Give You Up” video on YouTube.](https://images.ctfassets.net/23aumh6u8s0i/78MAP7qp6sMiYPshyjcg0W/8806be45ab082f91bcb80736b074541b/complete_screen_4.png)
+
+When you press the _Log out_ button, you go back to the app’s initial screen, which now displays “You’re logged out” as the title text:
+
+![“Logged out” screen, with “You’re logged out.” in title font and “Log in” button below it.](https://images.ctfassets.net/23aumh6u8s0i/4Tr87FxmHYuzJXmdMsUTrF/7303375181f0d5349e6c865b4b16c711/starter_screen_4.png)
 
 
 ## How to install and run the projects
 
-You’ll need the following:
+You’ll need the following to build the app:
 
-1. **An Auth0 account.** The app uses Auth0 to provide authenticate users, which means that you need an Auth0 account. You can <a href="https://auth0.com/signup" 
-  data-amp-replace="CLIENT_ID" 
-  data-amp-addparams="anonId=CLIENT_ID(cid-scope-cookie-fallback-name)">
-  sign up for a free account</a>, which lets you add login/logout to 10 applications, with support for 7,000 users and unlimited logins. This should suit your prototyping, development, and testing needs.
-2. **An iOS/iPadOS development setup:** 
-	* Any Mac computer from 2013 or later — MacBook, MacBook Air, MacBook Pro, iMac, iMac Pro, Mac Mini, Mac Pro, or Mac Studio — with at least 8 GB RAM. When it comes to RAM, more is generally better.
-	- Apple’s developer tool, Xcode version 11.0 (September 2019) or later. When writing this article, I used the current version at the time: 13.4.1 (build 13F100), released on June 2, 2022.
-3. **3. An iOS device, virtual or real.** Xcode comes with the Simulator application, which simulates recent iPhone, iPad, and iPod Touch models. Xcode 13.4’s virtual devices run iOS 15.5 by default.
+
+### 1. An Auth0 account
+
+The app uses Auth0 to authenticate users, which means that you need an Auth0 account. You can <a href="https://auth0.com/signup" data-amp-replace="CLIENT_ID" data-amp-addparams="anonId=CLIENT_ID(cid-scope-cookie-fallback-name)">sign up for a free account</a>, which lets you add login/logout to 10 applications, with support for 7,000 users and unlimited logins. This should suit your prototyping, development, and testing needs.
+
+
+### 2. An Android development setup
+
+- Any computer running Linux, macOS, or Windows from 2013 or later with at least 8 GB RAM. When it comes to RAM, more is generally better.
+- [**Java SE Developer Kit (JDK), version 11 or later.**](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html) You can find out which version is on your computer by opening a command-line interface and entering `java --version`.
+- [**Android Studio,**](https://developer.android.com/studio) version 3.6 (February 2020) or later. I used the current stable version of Android Studio when writing this article: version 2021.2.1, also known as “Chipmunk.”
+- **At least one Android SDK (Software Development Kit) platform.** You can confirm that you have one (and install one if you don’t) in Android Studio. Open _Tools_ → _SDK Manager_. You’ll see a list of Android SDK platforms. Select the current SDK (Android 11.0 (R) at the time of writing), click the _Apply_ button, and click the _OK_ button in the confirmation dialog that appears. Wait for the SDK platform to install and click the _Finish_ button when installation is complete.
+
+
+### 3. An Android device, virtual or real
+
+- **Using a real device:** Connect the device to your computer with a USB cable. Make sure that your device has Developer Options and USB debugging enabled.
+- **Using a virtual device:** Using Android Studio, you can build a virtual device (emulator) that runs on your computer. Here’s my recipe for a virtual device that simulates a current-model inexpensive Android phone:
+	1. Open _Tools_ → _AVD Manager_ (AVD is short for “Android Virtual Device”). The _Your Virtual Devices_ window will appear. Click the _Create Virtual Device..._ button.
+	2. The _Select Hardware_ window will appear. In the _Phone_ category, select _Pixel 3a_ and click the _Next_ button.
+	3. The _System Image_ window will appear, and you’ll see a list of Android versions. Select _R_ (API 30, also known as Android 11.0). If you see a _Download_ link beside _R_, click it, wait for the OS to download, then click the _Finish_ button. Then click the _Next_ button.
+	4. The _Android Virtual Device (AVD)_ window will appear. The _AVD Name_ field should contain _Pixel 3a API 30_; the two rows below it should have the titles _Pixel 3a_ (a reasonable “representative” phone, released three years ago at the time of writing) and _R_, and in the _Startup orientation_ section, _Portrait_ should be selected. Click the _Finish_ button.
+	5. You will be back at the _Your Virtual Devices_ window. The list will now contain _Pixel 3a API 30_, and that device will be available to you when you run the app.
 
 
 ### Installing and running the starter project
@@ -77,10 +98,10 @@ To use the complete project, download it, then connect it to Auth0 by doing the 
 * Open `Auth0.plist` in the app project. Paste the _Domain_ value that you just copied into the _Value_ field of the property list’s `Domain` row.
 * Paste the _Client ID_ value that you just copied into the _Value_ field of the property list’s `ClientId` row.
 * Copy the project’s Bundle Identifier from Xcode.
-* Using the string below, replace `{BUNDLE_IDENTIFIER}` with the app’s bundle identifier and `{YOUR_DOMAIN}` with your tenant’s domain:
+* Using the string below, replace `{YOUR_DOMAIN}` with your tenant’s domain and {YOUR_APP_PACKAGE_NAME} with the app’s package name (if you haven’t changed it, it should be `com.auth0.androidmetadata`:
 
 ```
-{BUNDLE_IDENTIFIER}://{YOUR_DOMAIN}/ios/{BUNDLE_IDENTIFIER}/callback
+app://{YOUR_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
 You will also need to create a new user with user and app metadata. Follow these steps:
