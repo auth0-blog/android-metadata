@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Metadata Demo</string>
+
+    <!--
+    Main activity
+    =============
+    -->
+
+    <!-- Title -->
+    <string name="initial_title">Welcome to the app!</string>
+    <string name="logged_in_title">You\'re logged in.</string>
+    <string name="logged_out_title">You\'re logged out.</string>
+
+    <!-- "Log in" and "Log out" buttons -->
+    <string name="button_login">Log in</string>
+    <string name="button_logout">Log out</string>
+
+    <!-- User profile -->
+    <string name="user_profile">
+        Name: %1$s\n
+        Email: %2$s
+    </string>
+
+    <!-- Personal affirmation -->
+    <string name="textview_affirmation_label">Personal affirmation</string>
+    <string name="edittext_affirmation_hint">Enter your personal affirmation here</string>
+
+    <!-- "Get" and "Set" buttons -->
+    <string name="button_refresh">Refresh</string>
+    <string name="button_save">Save</string>
+
+    <!-- SnackBar messages-->
+    <string name="login_success_message">Successfully logged in! %1$s</string>
+    <string name="login_failure_message">You need to log in to use the app.</string>
+    <string name="general_failure_with_exception_code">Failed - exception code: %1$s</string>
+    <string name="general_success_message">Success!</string>
+</resources>
